@@ -3,4 +3,4 @@ Personal study notes library
 
 ## Book list
 
-+ <<C++ Primer>>
++ << C++ Primer >>
