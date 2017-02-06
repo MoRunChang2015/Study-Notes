@@ -57,7 +57,35 @@
 
 + **常量表达式**是指值不会发生改变并且再编译过程中就能得到计算结果的表达式。
 
-+ ```c++
++ 
+```c++
   const int *p = nullptr; // p 是一个指向整型常量的指针
   constexpr int *q = nullptr // q 是一个指向整型的常量指针
   ```
+  
+### 2.5
+
++ **C++11**新增**别名声明**
+  `using SI = Sales_item;`
+  
++ auto类型再初始化过程中，引用被用作初始值时，真正参与初始化的其实是引用对象的值。此时编译器以引用对象的类型作为auto的类型。
+```c++
+   int i = 0, &r = i;
+   auto a = r; // a 是整数
+```
+
++ auto类型一般会忽略掉顶层const,同时底层const则会保留下来。
+```c++
+   const int ci = i, &cr = ci;
+   auto b = ci;  // b 是一个整数
+   auto c = cr;  // c 是一个整数
+   auto d = &i;  // d 是一个整型指针
+   auto e = &ci; // e 是一个指向整型常量的指针
+```
+
++ decltype使用的表达式是一个变量，则decltype返回该变量的类型(包括顶层const和引用在内),否则行会表达式结果对象的类型(可能是引用类型)。
+```c++
+    int i = 42, *p = &i, &r = i;
+    decltype(r + 0) b;
+    decltype(*p) c; Error! c is int&
+```
