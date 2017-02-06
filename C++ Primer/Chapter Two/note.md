@@ -46,3 +46,18 @@
 + 指针的相等操作符(==)或者不相等操作符(!=)，只关心指针变量存储的地址是否相等，跟指针的类型无关。详见[pointerEqual.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%20Two/code/2.2/pointerEqual.cpp)
 
 + `int* p1, p2 // p1是指向int的指针, p2是int`
+
+### 2.4
+
++ 如果想在多个文件之间共享const对象，必须在变量的定义之前添加**extern**关键字。
+
++ 常量引用仅对引用可参与的操作做出限定，对引用的对象本身是不是一个常量未作限定。详见[constReference.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%20Two/code/2.3/constReference.cpp)
+
++ **顶层const(top-level const)**表示指针本身是一个常量，**底层const(low-level)**表示指针所指的对象是一个常量。
+
++ **常量表达式**是指值不会发生改变并且再编译过程中就能得到计算结果的表达式。
+
++ ```c++
+  const int *p = nullptr; // p 是一个指向整型常量的指针
+  constexpr int *q = nullptr // q 是一个指向整型的常量指针
+  ```
