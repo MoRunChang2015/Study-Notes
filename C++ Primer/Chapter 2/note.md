@@ -37,13 +37,13 @@
  
 + 变量能且只能被**定义一次**，但是可以被**多次声明**。
  
-+ 用域作用符显示调用全局变量，见[scope.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%20Two/code/2.2/scope.cpp)
++ 用域作用符显示调用全局变量，见[scope.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%202/code/2.2/scope.cpp)
 
 ### 2.3
 
 + 引用创建后必须进行初始化，因为无法令引用重新绑定到另外一个对象。引用本身并非一个对象。
 
-+ 指针的相等操作符(==)或者不相等操作符(!=)，只关心指针变量存储的地址是否相等，跟指针的类型无关。详见[pointerEqual.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%20Two/code/2.3/pointerEqual.cpp)
++ 指针的相等操作符(==)或者不相等操作符(!=)，只关心指针变量存储的地址是否相等，跟指针的类型无关。详见[pointerEqual.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%202/code/2.3/pointerEqual.cpp)
 
 + `int* p1, p2 // p1是指向int的指针, p2是int`
 
@@ -51,7 +51,7 @@
 
 + 如果想在多个文件之间共享const对象，必须在变量的定义之前添加**extern**关键字。
 
-+ 常量引用仅对引用可参与的操作做出限定，对引用的对象本身是不是一个常量未作限定。详见[constReference.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%20Two/code/2.4/constReference.cpp)
++ 常量引用仅对引用可参与的操作做出限定，对引用的对象本身是不是一个常量未作限定。详见[constReference.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%202/code/2.4/constReference.cpp)
 
 + **顶层const(top-level const)**表示指针本身是一个常量，**底层const(low-level)**表示指针所指的对象是一个常量。
 
