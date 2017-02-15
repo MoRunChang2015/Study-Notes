@@ -6,3 +6,5 @@ Personal study notes library
 + << C++ Primer >>
 
 + << Beauty of Programming >>
+
++ << Computer Systems A Programmer's Perspective >> (深入理解计算机系统)
