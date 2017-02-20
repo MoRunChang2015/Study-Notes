@@ -42,3 +42,5 @@ int main() {
 
 + c++11可以使用**尾置返回类型**，注意要在本该出现类型的地方放置一个**auto**
 `auto func(int i) -> int （*）[10];`
+
++ c++11可以使用**decltype**，如`decltype(array) * arrPtr(int i);`
