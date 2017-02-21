@@ -120,14 +120,14 @@ int arr2[scale(i)]; // Error! scale(i)不是常量表达式
 
 + 函数名作为一个值使用的时候。该函数自动地转换成指针。
 ```c++
-   pf = lengthCompare;
-   pr = &lengthCompare; //等价
+pf = lengthCompare;
+pr = &lengthCompare; //等价
 ```
 
 + 直接使用指向函数的指针调用该函数，无需提取解引用指针
 ```c++
-    bool b1 = pf(str1, str2);
-    bool b2 = (*pf)(str1, str2); //等价
+bool b1 = pf(str1, str2);
+bool b2 = (*pf)(str1, str2); //等价
 ```
 
 + 跟数组一样，如果函数需要返回一个函数指针，最好使用类型别名或者尾置返回类型的形式
