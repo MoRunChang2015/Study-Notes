@@ -45,8 +45,51 @@ fill_n(back_inserter(vec), 10, 0);
 
 + 混合使用隐式捕获和显式捕获的时候，捕获列表中的第一个元素必须是`&或者=`。
 
-+　如果希望改变值捕获的变量的值，就必须在参数列表首加上关键字**mutable**。
+
++ 如果希望改变值捕获的变量的值，就必须在参数列表首加上关键字**mutable**。
 ```c++
 int a = 0;
 auto f = [a] ()mutable {a++; return a;};
+```
++ 在c++11中，可以使用定义在functional中的标准库bind函数，它接受一个可调用对象，生成一个新的可调用对象来"适应"原对象的参数列表。其中arg_lst用**`_n`**的形式表示占位符。
+```c++
+auto newCallable = bind(callable, arg_lst);
+```
++ **bind函数的占位符`_n`是定义在std::placeholders这个命名空间中**
+```c++
+auto newCallable = bind(callable, std::placeholders::_1, arg);
+```
+
++ 可以利用bind函数修正参数的值，也可以修正参数的顺序。
+```c++
+auto g = bind(f, a, b, _2, c, _1)
+```
+
++ bind的不是占位符的参数默认被拷贝到bind返回的可调用对象中，如果需要传递引用的话需要使用`ref或者cref函数`
+```c++
+for_each(words.begin(), words.end(), bind(print, ref(os), _1, ' ');
+```
+
++ 函数ref返回的是一个对象，包含给定的引用，此对象是可拷贝的。对应的有cref函数，返回一个包含const引用的对象。
+
++ 对于插入迭代器it，`*it, ++it, it++`都不会对it做任何事情，每个操作都放回it。
+
++ 当调用front_inserter(c)的时候会调用c.push_front。
+```
+list<int> lst = {1, 2, 3, 4};
+list<int> lst2, list3;
+copy(list.cbegin(), list.cend(), front_inserter(list2)); // list is {4, 3, 2, 1};
+copy(list.cbegin(), list.cend(), inserter(lst3, lst3.begin()); // list is {1, 2, 3, 4};
+```
+
++ 空的**istream_iterator**可以当成尾后迭代器来使用，也就是**EOF**,下面代码可以从输入流中读入一串数字并保存在vector中。
+```c++
+istream_iterator<int> in_iter(cin), eof;
+vector<int> vec(in_iter, eof);
+```
+
++ 对于输入流迭代器，通过==/!=判定两个读取相同的类型的流迭代器是否绑定在同一个流中或者都是尾后迭代器。通过`*it`返回流中读取的数据，`it->mem`等同于`(*it).mem`，`++it, it++`使用元素类型所定义的>>运算符从输入流中读取下一个值，与往常一样，前置版本返回一个指向递增后迭代器的引用，后置则返回旧值。
+```c++
+istream_iterator<int> in(cin), eof;
+cout << accumulate(in, eof, 0) << endl; //快速计算读入一串数字的和。
 ```
