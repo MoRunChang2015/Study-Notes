@@ -10,7 +10,7 @@
 
 + 使用**getline**函数读入时，行末的换行符没有存在返回的字符串中(被丢弃了)。
 
-+ 如果一条表达式中已经有了size()函数就不要再使用int了，这样可以避免混用int和unsigned可能带来的问题。如[stringSizeAndInt.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%203/code/3.2/stringSizeAndInt.cpp)
++ 如果一条表达式中已经有了size()函数就不要再使用int了，这样可以避免混用int和unsigned可能带来的问题。如[stringSizeAndInt.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%2003/code/3.2/stringSizeAndInt.cpp)
 
 + 当把string对象和字符字面值以及字符串字面值混在一条语句中使用的时候，必须确保每个加号运算符的两侧的运算对象至少有一个是string。
 

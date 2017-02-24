@@ -76,7 +76,7 @@ Record lookup(const Account*);
 
 + constexpr函数是指能用于常量表达式的函数。其中constexpr函数的返回类型以及所有形参的类型都是字面值类型，而且函数体中必须有且只有一条return语句。为了能够在编译过程中随时展开，constexpr函数被隐式地指定为内联函数。
 
-+ constexpr函数的返回值并非一个常量。详见[constexpr.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%206/code/6.5/constexpr.cpp)
++ constexpr函数的返回值并非一个常量。详见[constexpr.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%2006/code/6.5/constexpr.cpp)
 ```c++
 constexpr int new_sz() {return 42;)
 
