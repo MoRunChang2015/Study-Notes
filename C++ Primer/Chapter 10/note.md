@@ -72,6 +72,8 @@ for_each(words.begin(), words.end(), bind(print, ref(os), _1, ' ');
 
 + 函数ref返回的是一个对象，包含给定的引用，此对象是可拷贝的。对应的有cref函数，返回一个包含const引用的对象。
 
+### 10.4
+
 + 对于插入迭代器it，`*it, ++it, it++`都不会对it做任何事情，每个操作都放回it。
 
 + 当调用front_inserter(c)的时候会调用c.push_front。
