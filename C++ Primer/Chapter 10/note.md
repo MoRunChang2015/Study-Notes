@@ -95,3 +95,41 @@ vector<int> vec(in_iter, eof);
 istream_iterator<int> in(cin), eof;
 cout << accumulate(in, eof, 0) << endl; //快速计算读入一串数字的和。
 ```
+
++ 输出流迭代器类似于尾插入迭代器。定义方式如下，`out = val`表示val写入out绑定的输出流中去。`*out, ++out, out++`这些操作虽然存在但是不会对out作任何影响。
+```c++
+ostream_iterator<T> out(os);
+ostream_iterator<T> out(os, d); // 每个值后面都输出一个d，d是一个空字符结尾的字符数组，也就是c风格的字符串。
+```
+
++ 反向迭代器可以通过bace函数得到一个普通的迭代器。得到的迭代器会指向当前反向迭代器指向位置的下一个。
+```c++
+auto iter = riter.base();
+```
+
+
+### 10.5
+
++ 后缀是**`_if`**的泛型算法接受一个谓词代替元素值，后缀是**`_copy`**的泛型算法会将结果写入第三个参数指向的位置。
+
+
+### 10.6
+
++ list和forward_list有着一些专属的容器算法，这些算法比泛型算法的效率高，因为他们是针对链表优化的。
+```c++
+lst.merge(lst2);       // 合并，lst和lst2必须是有序的
+lst.merge(lst2, cmp);
+
+lst.remove(val);　　　// 删除等于val的或者令一元谓词为真的元素
+lst.remove(pred);
+
+lst.reverse();
+lst.sort();
+lst.sort(cmp);
+lst.unique();
+lst.unique(pred);
+```
+
++ lst.splice(args)或者flst.splice_fater(args)，用于把lst2的某一段移动到lst中
+
++ 链表特有的操作跟普通的泛型算法不同，它会改变容器的大小。
