@@ -42,3 +42,13 @@ upper_bound(k) 返回一个迭代器，指向第一个关键字大于k的元素
 equal_range(k) 返回一个迭代器pair,表示关键字等于k的范围。若k不存在，pair的两个成员都等于c.end()
 ```
 
++ lower_bound返回的迭代器可能指向一个具有给定关键字的元素，但也可能不指向。如果关键字不在容器中，则lower_bound会返回关键字的第一个安全插入点。upper_bound类似。
+
+
+### 11.4
+
++ c++11中定义了４个**无序关联容器**。这些容器不是使用比较运算符来组织元素的，而是使用一个哈希函数和关键字类型的==运算付。
+
++ 无序容器在储存上组织为一组桶，每个桶保存零个或者多个元素。通过`c.begin(n),c.end(n)`返回第n个桶的迭代器。
+
++ 定义成无序容器的元素类型要求提供`hast<key_type>`,标准库为内置类型(包括指针)还有string和智能指针类型提供了hash。当然也可以为无序容器提供一个用于替代==运算符和哈希值计算的函数,注意也要指定桶的大小。详见[customHashFunction.cpp](https://github.com/MoRunChang2015/Study-Notes/blob/master/C%2B%2B%20Primer/Chapter%2011/code/11.4/customHashFunction.cpp)
