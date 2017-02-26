@@ -23,7 +23,7 @@ string *ps = new string();
 auto p1 = new auto(obj); // p1 指向一个与obj类型相同的对象。
 ```
 
-+　new不能分配所要求的内存空间时，会抛出一个bad_alloc的异常。也可以使用空位new，使new不能分配时返回空指针。
++ new不能分配所要求的内存空间时，会抛出一个bad_alloc的异常。也可以使用空位new，使new不能分配时返回空指针。
 ```c++
 int* p = new(nothrow) int;
 ```
@@ -38,6 +38,7 @@ shared_ptr<T> p(p2,d); // p是shared_ptr p2的拷贝，唯一的区别是p将用
 ```c++
 p.reset(new int(1024)); // p 指向一个新的对象。
 ```
+
 + shared_ptr可以使用`p.unique()`来判定时候是唯一的用户，也可以使用`p.use_count()`获取对象智能指针的数目(效率较低，仅仅用作调试)。
 
 + 不要混合使用普通指针和智能指针，也不要使用get初始化另一个智能值或为智能指针赋值。
