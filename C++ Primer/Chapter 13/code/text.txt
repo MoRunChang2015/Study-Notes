@@ -1,0 +1,75 @@
+Android O name | Android O release date rumours: Will the next version of Android be called Oreo?
+The final version of Android N was released in August 2016 as Android Nougat, and we're looking at a similar time frame in 2017 for the release of Android O, which will most likely be announced at Google I/O on 17 May. But what will Android O be called? We round up the Android O name and release date rumours. Also see: Essential Android apps and Best Android games
+As we look ahead to Android O, there are still new features and fixes coming to Android Nougat. In late-January Google made available a beta version of Android Nougat 7.1.2, which it says is "an incremental maintenance release focused on refinements, so it includes a number of bug fixes and optimizations, along with a small number of enhancements for carriers and users". Click here to see how to download Android Nougat 7.1.2 beta.
+Android O: What will the next Android be called?
+Following Android Alpha and Android Beta, Google has always named its Android OS updates after sweet treats, and in alphabetical order. So far we've had Cupcake, Donut, Eclair, Froyo, Gingerbread, Honeycomb, Ice Cream Sandwich, Jelly Bean, KitKat, Lollipop, Marshmallow and Nougat.
+In 2017 Google will be looking for a sweet treat beginning with O. Trouble is, there really aren't that many. The Tech Advisor team could come up with Oreo, Orange, Oatcake and Oh! Henry (the latter obviously being our favourite, given this). It could even shake things up entirely and shock us all with something like Android OMG. (We're joking, but we kind of like it.)
+Google's Hiroshi Lockheimer has been stirring things up on Twitter, seemingly suggesting Android Oreo is the most likely candidate. But is he pulling our leg? Quite possibly, given he has also tweeted an image of Pocky (chocolate cream covered biscuit sticks) with the caption #2018.
+Android Oreo
+Trouble is, there are few sweet treats we can think of beginning with an O, so it could well be Android Oreo as rumoured.
+What do you think the next version of Android will be called? (If you choose Other comment below and let us know what you think.)
+
+Given that Android Marshmallow was Android 6.0 and Android Nougat was Android 7.0-7.1, we would assume that Android O will be Android 8.0. But Google hasn’t always done things this way, and Ice Cream Sandwich, Jelly Bean and KitKat were all 4.x updates. Also see: Android Nougat review
+When is Google I/O 2017?
+Google I/O 2017: 17 - 19 May 2017
+Traditionally Google uses Google I/O to announce the new update to its Android OS. The 11th annual I/O conference will take place between 17 and 19 May 2017 at the Shoreline Amphitheatre in Mountain View, California.
+Android O release date rumours: When is Android O coming out?
+Android O UK release date: August/September 2017 (TBC)
+Google surprised us in 2016 by taking the wraps off the Developer Preview of Android Nougat in advance of its summer Google I/O conference, and again by unveiling the final release with little fanfare and no new hardware in August. The new hardware came later, with the Google Pixel and Pixel XL unveiled in early October.
+Content continues below
+Up until now, Google has always announced the new Android OS and new hardware together. The change is most likely due to the fact it is now taking control over both the software and hardware in its own-brand devices in Apple-esque fashion, and the Google Pixel and Pixel XL were the first phones 'Made by Google' (even though they were made by HTC, but we won't go there).
+We can only assume this is how Google will treat its own-brand devices going forward: the hardware is no longer merely a vehicle to peddle its new software. With that in mind we’d expect to see the Android O Developer Preview again announced ahead of Google I/O on 17 May, and the final release prior to any new hardware at the end of August.
+However, it's equally likely that Google did things this way as a one-off in 2016 to take the focus away from Android Nougat (which wasn't a particularly big update) and move it on to its new phones.
+Either way, our money is on an August/September release for Android O. Also see: Android Nougat vs iOS 10
+Android O: Will my phone get Android O?
+Google phones and tablets are always the first to get new operating system updates, but even Google won't support them forever. Security updates are provided for three years following the device's release, or 18 months after it is removed from the Google Play Store (whichever is longer).
+So, for example, the Nexus 5X and Nexus 6P will be supported by Google until September 2017, which means they will get both Android Nougat and next year's Android O. The Nexus 9 and Nexus 6 will both be supported until October 2016, which should mean they get an update to Android Nougat but not Android O. Older Nexus devices will not be upgraded.
+Those with supported Nexus devices should find the update rolls out to their device following the launch of the new Nexus phones for 2016, or at least within a few weeks of launch.
+If you have a recent flagship phone or tablet from a well-known maker such as Sony, Samsung, HTC, LG or Motorola, it's likely you'll see the update rolled out within the first few months of 2018. However, before you can get the update both the hardware manufacturer and mobile operator must be ready to roll it out, which can slow down things.
+In its promotion of the Moto G4 Plus, Motorola has already said it will receive Android Nougat and Android O.
+If you'e running a mid-range or budget model it's likely that you will never get Android O. Android OS fragmentation is still an issue, and at the last count on 6 February 2017 there were still devices running Gingerbread (via Android Developers).
+Version
+Codename
+Distribution
+2.3.3-2.3.7
+Gingerbread
+1.0%
+4.0.3-4.0.4
+Ice Cream Sandwich
+1.0%
+4.1.x
+Jelly Bean
+4.0%
+4.2.x
+Jelly Bean
+5.7%
+4.3
+Jelly Bean
+1.6%
+4.4
+KitKat
+21.9%
+5.0
+Lollipop
+9.8%
+5.1
+Lollipop
+23.1%
+6.0
+Marshmallow
+30.7%
+7.0
+Nougat
+0.9%
+7.1
+Nougat
+0.3%
+Android O: What about Android Andromeda?
+Andromeda is a Google operating system that is in essence a mash-up of Chrome OS and Android and has been rumoured for about as long as we can remember. And when Hiroshi Lockheimer tweeted in late September that Google's October event was going to be as memorable as the one in which Google announced Android (not his exact words - see below), the internet went crazy trying to guess what it is that could possibly warrant such hype. The only logical suggestion was Andromeda, but of course what we actually got was the first 'Made by Google' phones.
+We announced the 1st version of Android 8 years ago today. I have a feeling 8 years from now we'll be talking about Oct 4, 2016.
+— Hiroshi Lockheimer (@lockheimer) September 24, 2016
+However, Andromeda is still allegedly on the cards, and Android Police assures us that Andromeda is an actual thing and not the figment of many Google fan's creative imaginations. It points to a Wall Street Journal report that Google was intending to fold the two operating systems into one to better suit a range of hardware platforms. This would open the doors to a new market sector in which Google has previously tried and failed: the lucrative world of laptops.
+According to WSJ Andromeda won’t see the light until 2017, which means we might not see Android O at all.
+Read next: Best new phones coming in 2017
+Follow Marie Brewis on Twitter.
+Tags:  Smartphones, Laptops, Tablets, Android, Table of Contents
