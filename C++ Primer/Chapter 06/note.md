@@ -35,7 +35,7 @@ int main() {
 
 + 函数返回数组的指针定义形式是`Type (*function(parameter_list))[dimension],这样可读性不好，建议使用别名的形式
 ```c++
-    typedef in arrT[10];
+    typedef int arrT[10];
     using arrT = int[10];
     arrT* func(int i);
 ```
@@ -72,7 +72,7 @@ Record lookup(const Account*);
 
 + 在给定作用域中一个形参只能被赋予一次默认实参，换句话说，函数的后续声明只能为之前那些没有默认值的形参添加默认实参，已经有默认实参的形参不能再添加即使默认值跟之前的一样，而且该形参右侧的所有形参必须都有默认值。建议放在头文件中。
 
-+ 局部变量不能作为默认实参。初次之外，只要表达式的类型能够转换成形参所需的类型，该表达式就能作为实参。
++ 局部变量不能作为默认实参。除此之外，只要表达式的类型能够转换成形参所需的类型，该表达式就能作为实参。
 
 + constexpr函数是指能用于常量表达式的函数。其中constexpr函数的返回类型以及所有形参的类型都是字面值类型，而且函数体中必须有且只有一条return语句。为了能够在编译过程中随时展开，constexpr函数被隐式地指定为内联函数。
 
@@ -90,7 +90,7 @@ int i = 2;
 int arr2[scale(i)]; // Error! scale(i)不是常量表达式
 ```
 
-+ 通常内联函数和constexpr函数通常定义再头文件中。
++ 通常内联函数和constexpr函数通常定义在头文件中。
 
 + 可以通过宏定义**`NDEBUG`**来限制assert的行为，如果NDEBUG时assert将会无效。在编译过程中使用`CC -D NDEBUG macin.cpp`相当于在main.cpp的第一行中写`#define NDEBUG`
 
