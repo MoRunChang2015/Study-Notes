@@ -63,3 +63,115 @@ struct D : B {
 + 虚函数可以有默认形参，如果某次函数调用使用了默认实参，则该实参由本次调用的静态类型决定。也就是说，通过基类的引用或指针调用虚函数，就把基类的默认实参传入派生类的对应函数。所以如果虚函数使用默认实参，则基类和派生类中定义的默认实参最好一致。
 
 + 可以通过域作用符强制要求对虚函数的调用不进行动态绑定，而是强迫执行虚函数的某个版本(称为回避虚函数机制)。该调用在编译时完成解析。
+
+
+### 15.4
+
++ 再虚函数函数体位置书写=0可以表示一个纯虚函数，其中=0只能出现在类内部的虚函数声明语句处(省略virtual)。
+
++ 含有纯虚函数的类是抽象基类。不能直接创建一个抽象基类的对象。派生类必须覆盖掉纯虚函数，否则它也是一个抽象基类。
+
++ 派生类构造函数只初始化它的直接基类
+
+### 15.5
+
++ 派生类的成员或友元只能通过派生类对象来访问基类的受保护成员。派生类对于一个基类对象中的受保护成员没有任何访问特权。
+```c++
+class Base {
+protected:
+    int prot_mem;
+};
+
+class Sneaky:public Base {
+    friend void clobber(Sneaky&);
+    friend void clobber(Base&);
+    int j;
+};
+
+void clobber(Sneaky &s) { s.j = s.prot_mem = 0; } // 正确
+
+void clobber(Base &b) { b.prot_mem = 0;} // 错误，无法访问。
+```
+
++ 派生访问说明符的目的是控制派生类用户(包括派生类的派生类在内)对于基类的成员访问控制，对于派生类的成员能否访问其直接基类的成员没什么影响(基类中的public,protected是可访问的，private是不可访问的)
+
++ 派生类向基类转换的可访问性：对于代码中的某个给定的节点，如果基类的公有成员(不管有没有)是可访问，则派生类向基类的类型转换也是可访问的，反之不行。
+
++ 不能继承友元关系，每个类负责控制各自成员的访问权限。
+```c++
+class Base {
+    friend class Pal;
+protected:
+    int prot_mem;
+}; 
+
+class Pal {
+public:
+    int f(Base b) { return b,prot_mem;} // 正确
+    int f2(Sneaky s) {return s.j;} // 错误
+    int f3(Sneaky s) {return s.prot_mem;} // 正确
+};
+
+
+class D2:public Pal {
+public:
+    int mem(Base b) {return b,prot_mem;} //　错误
+};
+```
+
++ 通过using声明改变个别成员的可访问性，派生类只能为那些它可以访问的名字提供using声明。
+```c++
+class Base {
+public:
+    std::size_t size const {return n;}
+protected:
+    std::size_t n;
+};
+
+class Derived: private Base {
+public:
+    using Base::size;
+protected:
+    using Base::n;
+};
+```
+
++ 默认派生运算符也由定义派生类所用的关键字决定，默认情况下，使用class关键字定义的派生类是私有继承，而使用struct关键字定义的派生类是公有继承。
+
+### 15.７
+
++ 如果基类的析构函数不是虚函数，则delete一个指向派生类对象的基类指针将产生未定义的行为。
+
++ 虚析构函数将阻止合成移动操作。如果一个类定义了析构函数，即使它通过=default的形式使用了合成版本，编译器也不会为这个类合成移动操作。因为基类缺少移动操作会阻止派生类拥有自己的合成移动操作，所以当确实需要执行移动操作时应该首先再基类中进行定义。
+
++ 在拷贝构造函数跟移动构造函数中，需要再初始化列表中显式调用基类的拷贝构造函数或移动构造函数
+```c++
+class Base {...};
+
+class D:public Base {
+    D(const D& d) : Base(d) {...}
+    D(D&& d) : Base(std::move(d)) {...}
+};
+```
++ 在赋值运算符中也要为基类部分进行赋值
+```c++
+D &D::operator=(const D& rhs) {
+    Base::operator=(rhs);
+  ..． 
+}
+```
+
+
++ 如果构造函数或析构函数调用了某个虚函数，则我们应该执行与构造函数或析构函数所属类型相对应的虚函数版本。
+
++ 可以通过using声明，让基类的每个构造函数，都自动生成一个在派生类中的版本，`derived(parms):base(args) {}`, 如果派生类含有自己的数据成员，这些数据成员会默认初始化。
+```c++
+class D : public B {
+public:
+    using B::B;
+};
+```
+
++ 一个构造函数的using声明不会改变该构造函数的访问级别，如，不管using声明在哪，基类的私有构造函数在派生类中还是私有,同时如果基类的构造函数是explicit或者constexpr，则继承的构造函数也有相同的属性。
+
++ 当一个基类构造函数含有默认实参，这些实参不会被继承，派生类会得到多个继承的构造函数，每个构造函数分别省略掉一个含有默认实参的形参。
