@@ -99,11 +99,12 @@ QueryResult OrQuery::eval(const TextQuery& text) const {
 
 QueryResult AndQuery::eval(const TextQuery& text) const {
     auto left = lhs.eval(text), right = rhs.eval(text);
+    auto rlines = right.get_lines();
     auto ret_lines = make_shared<map<line_no, int>>();
 
     for (auto& p : *left.get_lines())
-        if (right.get_lines()->find(p.first) != right.get_lines()->end()) {
-            (*ret_lines)[p.first] = p.second + (*right.get_lines())[p.first];
+        if (rlines->find(p.first) != rlines->end()) {
+            (*ret_lines)[p.first] = p.second + (*rlines->find(p.first)).second;
         }
 
     return QueryResult(rep(), ret_lines, left.get_file());

@@ -24,25 +24,25 @@ class QueryResult {
 
    public:
     QueryResult(std::string s,
-                std::shared_ptr<std::map<TextQuery::line_no, int>> p,
-                std::shared_ptr<std::vector<std::string>> f)
+                const std::shared_ptr<const std::map<TextQuery::line_no, int>> p,
+                const std::shared_ptr<const std::vector<std::string>> f)
         : word(s), lines(p), file(f), total(0) {
         for (auto &r : *lines) {
             total += r.second;
         };
     };
 
-    std::shared_ptr<std::map<TextQuery::line_no, int>> get_lines() const {
+    std::shared_ptr<const std::map<TextQuery::line_no, int>> get_lines() const {
         return lines;
     }
 
-    std::shared_ptr<std::vector<std::string>> get_file() const { return file; }
+    std::shared_ptr<const std::vector<std::string>> get_file() const { return file; }
 
    private:
     std::string word;
     int total;
-    std::shared_ptr<std::map<TextQuery::line_no, int>> lines;
-    std::shared_ptr<std::vector<std::string>> file;
+    std::shared_ptr<const std::map<TextQuery::line_no, int>> lines;
+    std::shared_ptr<const std::vector<std::string>> file;
 };
 
 class Query_base {
