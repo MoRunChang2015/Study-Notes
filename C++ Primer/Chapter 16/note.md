@@ -186,3 +186,87 @@ void flip(F f, T1 &&t1, T2 &&t2) {
 ```
 
 ### 16.3
+
++ 函数模板可以被另一个模板或一个普通非模板函数重载。当有多个重载模板对一个调用提供同样好的匹配时，应选择最特例化的版本。如果一个非函数模板与一个函数模板提供同样好的匹配，则选择非模板版本。
+
+
+### 16.4
+
++ 一个**可变参数模板**就是一个接受可变数目参数的模板函数或模板类。可变数目的参数被称为参数包。参数包分为两种，**模板参数包**表示零个或多个模板参数，**函数参数包**表示零个或多个函数参数。
+```c++
+template<typename T, typename... Args>
+void foo(const T& t, const args& ... rest);
+
+foo(i, s, 42, d);
+foo(s, 42, "hi");
+foo("foo");
+```
+
++ 利用`sizeof...`运算符查询参数包中参数数目
+```c++
+template<typename...Args> void g(Args ... args) {
+     cout << sizeof...(Args) << endl; // 类型参数数目
+     cout << sizeof...(args) << endl; // 函数参数数目
+}
+```
+
++ 非可变参数模板比可变参数模板更特例化，因此编译器选择非可变参数模板。
+
++ 扩展一个包就是将它分解为构成的元素，对每个元素应用模式，获得扩展后的列表。通过在模式右边放一个省略号...来触发扩展。
+```c++
+tempalte<typename... Args>
+ostream &errorMsg(ostream &os, const Args&... rest) {   // 扩展Args
+    return print(os, debug_rep(rest)...);  // 扩展，模式为debug_rep(rest)
+}
+```
+
+### 16.5
+
++ 特例化一个模板
+```c++
+template<typenamee T> int compare(const T&, const T&);
+
+// 特例化
+
+template<>
+int compare(const char* const &p1, const char* const &p2) {
+     return strcmp(p1, p2);
+}
+
+// T 为const char*
+```
+
++ 特例化的本质是实例化一个模板，而非重载它，因此，特例化不会影响函数匹配。类似的，也可以特例化一个类模板，类模板可以部分特例化。一个类模板的**部分特例化**本身是一个模板，使用它时用户还必须为那些在特例化版本中未指定的模板参数提供实参。
+
++ 首先定义模板参数，必须与原模板的名字相同。对每个未完全确定类型的模板参数，在特例化版本的模板列表中都有一项与之对应。在类名之后，为要特例化的模板参数指定实参，这些实参位于模板名之后的尖括号中，这些实参与原始模板中的参数按位置对应。
+```c++
+template <class T>
+struct remove_reference {
+    typedef T type;
+};
+
+template <class T>
+struct remove_reference<T&> {
+     typedef T type;
+};
+
+template <class T>
+struct remove_reference<T&&> {
+     typedef T type;
+};
+```
+
++ 可以特例化类模板中的成员函数
+```c++
+template<typename T>
+struct Foo {
+    Foo(const T& t = T()) : mem(t) {}
+    void Bar() { /**..*/}
+    T mem;
+};
+
+template<>
+void Foo<int>::Bar() {
+....
+}
+```
