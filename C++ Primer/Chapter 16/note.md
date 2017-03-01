@@ -118,3 +118,71 @@ template class Blob<string>;
 ```
 
 + 实例化定义会实例化所有成员，包括内联的成员函数。
+
+
+### 16.2
+
++ 将实参传递给带模板类型的函数形参时，能够自动应用的类型转换只有const转换以及数组或函数到指针转换。正常类型转换应用于普通函数实参，也适用于显式指定的实参。
+
++ 当使用一个函数模板初始化一个函数指针或者为一个函数指针赋值时，编译器使用指针的类型来推断实参。
+```c++
+int (*pf)(const int&, const int&) = compare;
+```
+
++ 当参数是一个函数模板实例的地址时，程序上下文必须满足：对每个模板参数，能唯一确定其类型或值。
+```c++
+void func(int(*)(const string&, const string&));
+void func(int(*)(const int&, const int&));
+
+func(compare) // Error
+
+func(compare<int>) // 正确
+```
+
++ 当将一个左值传递给函数的右值引用参数，且此引用指向模板类型参数(T&&)，编译器推断模板类型参数为实参的左值引用类型。
+```c++
+template<typename T> void f3(T&&);
+int i;
+f3(i); // 此时推断T的类型是int&,也就是类型int&的右值引用
+```
+
++ 如果间接参加一个引用的引用，这些引用形成了折叠。在所有情况(除了一种情况)下，引用会折叠成一个普通的左值引用类型。
+```c++
+x& &,X& &&, X&& & 都折叠成X&
+X&& &&折叠成X&&
+```
+
++ 引用的折叠只能应用与间接创建的引用的引用，如类型别名或模板参数。
+
++ 如果一个函数参数是指向模板参数类型的右值引用(T&&),则可以传递给它任意类型的实参。如果将一个左值传递给这样的参数，则参数被实例化为一个普通的右值引用。
+
++ 标准库是这样定义move的
+```c++
+template<typename T>
+typename remove_reference<T>::type&& move(T&& t) {
+    return static_cast<typename remove_reference<T>::type&&>(t);
+}
+```
+
++ 如果一个函数参数是指向模板类型参数的右值引用(T&&)，它对应的实参的const属性和左值/右值属性将得到保持。
+```c++
+template<typename F, typename T1, typename T2>
+void filp2(F f, T1&& t1, T2&& t2) {
+    f(t2,t1);
+}
+
+// 但是这种做法没法解决接收右值引用的函数。
+void g(int &&i, int& j) {
+    cout << i << " " << j << endl;
+}
+```
+
++ 跟move一样定义再utility中的std::forward返回显式实参类的右值引用。若`forward<T>`中T类型是普通(非引用)类型，则返回的是T&&, 若T是一个左值引用类型，返回类型经过折叠后是一个左值引用类型。所以继上条：
+```c++
+template<typename F, typename T1, typename T2>
+void flip(F f, T1 &&t1, T2 &&t2) {
+    f(std::forward<T2>(t2), std::forward<T1>(t1));
+}
+```
+
+### 16.3
