@@ -61,7 +61,7 @@ typename T::value_type top(const T& c) {
 
 ```
 
-+ **c++11**，允许为函数模板和类模板提供默认参数，但是无论何时使用一个模板，都必须再模板名之后接上尖括号，即使全部使用默认参数。
++ **c++11**，允许为函数模板和类模板提供默认参数，但是无论何时使用一个模板，都必须在模板名之后接上尖括号，即使全部使用默认参数。
 
 + 一个类(无论是普通类还是模板类)可以包含本身是模板的成员函数，这种成员称为成员模板。成员模板不能是虚函数。
 ```c++
@@ -109,7 +109,7 @@ template declaration;        // 实例化定义
 
 extern template class Blob<string>;
 extern tempalte class int compare(const int&, const int&) 
-// 实例化出现再其他位置。
+// 实例化出现在其他位置。
 
 
 // 在其他文件中
@@ -177,7 +177,7 @@ void g(int &&i, int& j) {
 }
 ```
 
-+ 跟move一样定义再utility中的std::forward返回显式实参类的右值引用。若`forward<T>`中T类型是普通(非引用)类型，则返回的是T&&, 若T是一个左值引用类型，返回类型经过折叠后是一个左值引用类型。所以继上条：
++ 跟move一样定义在utility中的std::forward返回显式实参类的右值引用。若`forward<T>`中T类型是普通(非引用)类型，则返回的是T&&, 若T是一个左值引用类型，返回类型经过折叠后是一个左值引用类型。所以继上条：
 ```c++
 template<typename F, typename T1, typename T2>
 void flip(F f, T1 &&t1, T2 &&t2) {
