@@ -152,3 +152,42 @@ f(*svec[0]);
 ### 19.8
 
 + c++定义的一些固有的**不可移植**的特性是指因机器而异的特性。
+
++ 类可以将其(非静态)数据成员定义成**位域**，在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或设备传递二进制数据时，通常用到位域。位域的类型必须是整型或枚举类型。这些位域会储存在同一个unsigned int中。取地址运算符(&)不能作用于位域。
+```c++
+typedef unsigned int bit;
+class File {
+    Bit mode: 2;  // mode占2位
+    Bit modified: 1;
+    Bit prot_owner: 3;
+...
+};
+
+void File::write() {
+    modified = 1;
+    ..
+};
+
+void File:open() {
+    mod |= READ;
+};
+```
+
++ 一些变量由程序以外的过程控制，这些变量应该声明为**volatile**，通知编译器不应对这样的对象进行优化。
+```c++
+volatile int display_register;
+volatile const int bitmapBuf;
+```
+
++ 合成的拷贝对volatile无效。
+
++ c++的链接提示`extern"C"`指出任意非c++程序说用的语言。类似的也有`extern "Ada", extren "FORTRAN"`
+```c++
+extren "C" size_t strlen(const char*);
+
+extern "C" {
+    int strcmp(const char*, cosnt char*);
+    char *strcat(char*, const char*);
+}
+
+```
