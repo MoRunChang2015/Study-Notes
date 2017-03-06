@@ -59,12 +59,9 @@
 
 + 
 ```c++
-  const int *p = nullptr; // p 是一个指向整型常量的指针
-  constexpr int *q = nullptr // q 是一个指向整型的常量指针
-  ```
+    const int *p = nullptr; // p 是一个指向整型常量的指针
+    constexpr int *q = nullptr // q 是一个指向整型的常量指针
 
-+
-```c++
     const int *p // 指向常量的指针
     int const *p // int const 与 const int 一样，指向常量的指针
     int *const p // 指向整型的常量指针
