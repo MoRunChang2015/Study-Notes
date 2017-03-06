@@ -24,10 +24,9 @@ void shell_sort(int a[], int n) {
 }
 
 int main() {
-    int a[10] = { 5, 9, 7, 8, 10, 11, 60, -5, 6, 0};
+    int a[10] = {5, 9, 7, 8, 10, 11, 60, -5, 6, 0};
     shell_sort(a, 10);
-    for (auto& x : a)
-        cout << x << " ";
+    for (auto& x : a) cout << x << " ";
     cout << endl;
     return 0;
 }
