@@ -9,6 +9,8 @@ Personal study notes library
 
 + << Computer Systems A Programmer's Perspective >> (深入理解计算机系统)
 
++ << C++ Concurrency In Action >>
+
 
 ### Topic
 
