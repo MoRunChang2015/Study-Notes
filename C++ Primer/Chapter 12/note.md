@@ -3,7 +3,7 @@
 
 ### 12.1
 
-+ shared_ptr允许多个指针指向同一个对象，unique_ptr则"独占"所指向的对象。week_ptr是一个伴随类，是一种若应用。这三种指针都在头文件`<memory>`中。
++ shared_ptr允许多个指针指向同一个对象，unique_ptr则"独占"所指向的对象。week_ptr是一个伴随类，是一种弱引用。这三种指针都在头文件`<memory>`中。
 
 + 调用make_shared函数在动态内存中分配一个对象并初始化它，返回指向此对象的shared_ptr。
 ```c++
