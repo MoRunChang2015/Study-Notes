@@ -17,3 +17,5 @@ Personal study notes library
 + algorithm and data structures
 
 + operator system
+
++ PyQt5
