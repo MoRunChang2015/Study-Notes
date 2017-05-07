@@ -19,12 +19,12 @@ class Example(QWidget):
         cancelButton = QPushButton("Cancel")
 
         hbox = QHBoxLayout()
-        hbox.addStretch(0)
+        hbox.addStretch(1)
         hbox.addWidget(okButton)
         hbox.addWidget(cancelButton)
 
         vbox = QVBoxLayout()
-        vbox.addStretch(0)
+        vbox.addStretch(1)
         vbox.addLayout(hbox)
 
         self.setLayout(vbox)
