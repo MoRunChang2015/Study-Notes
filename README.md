@@ -11,6 +11,8 @@ Personal study notes library
 
 + << C++ Concurrency In Action >>
 
++ << Effective Modern C++ >>
+
 
 ### Topic
 
