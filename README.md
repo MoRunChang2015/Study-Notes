@@ -13,6 +13,8 @@ Personal study notes library
 
 + << Effective Modern C++ >>
 
++ << Fluent Python >>
+
 
 ### Topic
 
